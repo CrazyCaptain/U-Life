@@ -22,19 +22,23 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-            <Button
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Life"
+                android:background="@drawable/life"
                 android:id="@+id/btnLife"
-                android:onClick="viewLife" />
+                android:onClick="viewLife"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp" />
 
-            <Button
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Education"
+                android:background="@drawable/education"
                 android:id="@+id/btnEd"
-                android:onClick="viewEducation" />
+                android:onClick="viewEducation"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp" />
         </LinearLayout>
 
         <ImageView
@@ -49,19 +53,23 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-            <Button
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Auto"
+                android:background="@drawable/auto"
                 android:id="@+id/btAuto"
-                android:onClick="viewAuto" />
+                android:onClick="viewAuto"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp" />
 
-            <Button
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Investment"
+                android:background="@drawable/investment"
                 android:id="@+id/button5"
-                android:onClick="viewInvestment" />
+                android:onClick="viewInvestment"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
