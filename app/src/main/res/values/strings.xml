@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">U-Life</string>
+
+
+    <string-array name="colleges_arrays">
+        <item>De La Salle - College of St. Benilde</item>
+        <item>De La Salle University</item>
+        <item>Ateneo De Manila University</item>
+        <item>Mapua Institute of Technology</item>
+        <item>University of Sto. Tomas</item>
+        <item>Letran</item>
+        <item>College of San Beda</item>
+        <item>University of Asia and Pacific</item>
+        <item>Enderun Colleges</item>
+        <item>Others...</item>
+    </string-array>
+
+    <string name="prompt_month">Select Month</string>
+    <string-array name="month_arrays">
+        <item>January</item>
+        <item>Febuary</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+
+    <string-array name="years_arrays">
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+        <item>2027</item>
+    </string-array>
+
+
+    <string-array name="carbrand_arrays">
+        <item>Toyota</item>
+        <item>Nissan</item>
+        <item>Mitsubishi</item>
+        <item>Kia</item>
+        <item>Hyundai</item>
+        <item>Ford</item>
+        <item>Chevrolet</item>
+        <item>BMW</item>
+        <item>McLaren</item>
+        <item>Audi</item>
+        <item>Puegeot</item>
+    </string-array>
+
+</resources>
