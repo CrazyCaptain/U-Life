@@ -43,6 +43,10 @@ namespace UHacMnl.Api
             {
                 Subscriber subscriber = db.Subscribers.SingleOrDefault(m => m.ContactNumber == sms.mobile_number.Substring(2));
                 subscriberId = subscriber.SubscriberId;
+                subscriber.CertificatesLeft++;
+                db.Entry(subscriber).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
                 requestCost = "P15.00";
                 responseMessage = "You have insured 1 certificate for P15, you have been charged P1.00 for this text.";
 
@@ -59,15 +63,17 @@ namespace UHacMnl.Api
             {
                 Subscriber subscriber = db.Subscribers.SingleOrDefault(m => m.ContactNumber == sms.mobile_number.Substring(2));
                 subscriberId = subscriber.SubscriberId;
-
+               
                 customVariable = sms.message.Split(new char[] { ',' }, 4);
                 type = customVariable[0];
                 Int32 certs;
-                if (Int32.TryParse(customVariable[1], out certs))
+                if (Int32.TryParse(customVariable[1], out certs) && certs <= subscriber.CertificatesLeft)
                 {
                     FirstName = customVariable[2];
                     LastName = customVariable[3];
-
+                    subscriber.CertificatesLeft -= certs;
+                    db.Entry(subscriber).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
                     responseMessage = "You have claimed " + certs + "certs. You have been charged P1.00.";
                 }
                 else
