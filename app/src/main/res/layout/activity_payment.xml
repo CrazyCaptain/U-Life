@@ -7,15 +7,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ulife.uhack.com.u_life.Investment"
+    tools:context="ulife.uhack.com.u_life.payment"
     android:background="#ffa530">
-
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical">
+        android:gravity="center">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -24,18 +23,19 @@
             android:gravity="center">
 
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
+                android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText4"
-                android:textColor="@color/white"
+                android:id="@+id/editText5"
                 android:textColorHint="@color/white"
-                android:hint="Enter Amount (Min. Php 5,000.00" />
+                android:textColor="@color/white"
+                android:hint="Amount"
+                android:gravity="center_horizontal" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
@@ -43,25 +43,9 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Find Available Investment Opportunities"
-                android:id="@+id/button4"
-                android:onClick="pay" />
+                android:text="Pay via Unionbank"
+                android:id="@+id/button6" />
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Investments"
-            android:id="@+id/textView6"
-            android:textColor="@color/white"
-            android:layout_marginBottom="15dp" />
-    </LinearLayout>
 </RelativeLayout>

@@ -19,7 +19,8 @@
         <activity android:name=".Life" />
         <activity android:name=".Education" />
         <activity android:name=".Auto" />
-        <activity android:name=".Investment"></activity>
+        <activity android:name=".Investment" />
+        <activity android:name=".payment"></activity>
     </application>
 
 </manifest>
