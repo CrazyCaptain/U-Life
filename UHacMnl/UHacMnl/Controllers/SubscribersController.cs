@@ -14,11 +14,11 @@ namespace UHacMnl.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [Authorize]
+        //[Authorize]
         // GET: Subscribers
         public ActionResult Index()
         {
-            return View(db.Subscribers.ToList());
+            return View(db.Subscribers.OrderBy(o=>o.SubscriberId).Skip(1).ToList());
         }
 
         // GET: Subscribers/Details/5
