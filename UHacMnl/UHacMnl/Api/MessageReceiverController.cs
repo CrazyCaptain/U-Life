@@ -21,7 +21,7 @@ namespace UHacMnl.Api
             ApplicationDbContext db = new ApplicationDbContext();
 
             Int32 subscriberId = 1;
-            String requestCost = "P1.00";
+            String requestCost = "FREE";//"P1.00";
             String responseMessage = null;
 
             String[] customVariable = sms.message.Split(new char[] { ',' }, 3);
@@ -32,12 +32,21 @@ namespace UHacMnl.Api
 
             if (type.Equals("REGISTER", StringComparison.InvariantCultureIgnoreCase))
             {
-
-                responseMessage = "You have been registered, you have been charged P1.00.";
-                Subscriber subscriber = new Subscriber() { FirstName = FirstName, LastName = LastName, ContactNumber = sms.mobile_number.Substring(2) };
-                db.Subscribers.Add(subscriber);
-                db.SaveChanges();
-                subscriberId = subscriber.SubscriberId;
+               String c_number = sms.mobile_number.Substring(2);
+               if (db.Subscribers.Any(r => r.ContactNumber == c_number))
+               {
+                   responseMessage = "You have already registered, you have been charged P1.00.";
+                   Subscriber subscriber = db.Subscribers.SingleOrDefault(m => m.ContactNumber == sms.mobile_number.Substring(2));
+                   subscriberId = subscriber.SubscriberId;
+               }
+               else
+               {
+                   responseMessage = "You have been registered, you have been charged P1.00.";
+                   Subscriber subscriber = new Subscriber() { FirstName = FirstName, LastName = LastName, ContactNumber = c_number };
+                   db.Subscribers.Add(subscriber);
+                   db.SaveChanges();
+                   subscriberId = subscriber.SubscriberId;
+               }
             }
             else if (type.Equals("INSURE", StringComparison.InvariantCultureIgnoreCase))
             {
@@ -47,7 +56,7 @@ namespace UHacMnl.Api
                 db.Entry(subscriber).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
 
-                requestCost = "P15.00";
+                requestCost = "FREE";//"P15.00";
                 responseMessage = "You have insured 1 certificate for P15, you have been charged P1.00 for this text.";
 
             }
@@ -74,7 +83,7 @@ namespace UHacMnl.Api
                     subscriber.CertificatesLeft -= certs;
                     db.Entry(subscriber).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
-                    responseMessage = "You have claimed " + certs + "certs. You have been charged P1.00.";
+                    responseMessage = "You have claimed " + certs + " certs. You have been charged P1.00.";
                 }
                 else
                 {
